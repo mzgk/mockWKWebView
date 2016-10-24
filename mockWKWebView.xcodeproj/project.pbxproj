@@ -96,7 +96,7 @@
 				TargetAttributes = {
 					32D2ED9C1DBDDFCE00D806EA = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 98JE587AJG;
+						DevelopmentTeam = 9B357NMPCP;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -259,7 +259,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 98JE587AJG;
+				DEVELOPMENT_TEAM = 9B357NMPCP;
 				INFOPLIST_FILE = mockWKWebView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mzgkworks.mockWKWebView;
@@ -272,7 +272,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 98JE587AJG;
+				DEVELOPMENT_TEAM = 9B357NMPCP;
 				INFOPLIST_FILE = mockWKWebView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mzgkworks.mockWKWebView;
