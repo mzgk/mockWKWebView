@@ -80,6 +80,9 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate, UIPo
 
         return tabView
         // これで元のViewの上に新たなViewが出来上がる（あとは新規Tabとして表示させる方法を考える）
+        // もしかして、表示する用のViewは１つだけで、loadまでしたWKWebViewのインスタンスを配列に追加
+        // 同じくTabに見立てたViewを画面に追加していって、タップされたTabに紐づくWKWebViewインスタンスを
+        // 配列から取り出して、Viewに入れ込んでるだけか？
     }
 }
 
