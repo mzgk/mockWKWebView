@@ -12,6 +12,7 @@ import WebKit
 class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate, UIPopoverPresentationControllerDelegate {
 
     var webView: WKWebView!
+    var targetURL: String!
 
     override func loadView() {
         let webConfiguration = WKWebViewConfiguration()
@@ -47,6 +48,8 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate, UIPo
             newActionSheet.addAction(UIAlertAction(title: "新規タブで開く", style: .destructive, handler: { (action) -> Void in
                 // url に対して何かする -> JavaScript : window.openなのか？
                 print("新規タブで開く: URL=\(url)")
+                self.targetURL = url
+                self.webView.evaluateJavaScript("window.open('\(self.targetURL)', '_blank')", completionHandler: nil)
             }))
 
             // 既存のアクションシート項目を追加
@@ -62,6 +65,21 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate, UIPo
             newActionSheet.popoverPresentationController?.permittedArrowDirections = .init(rawValue: 0)
         }
         return
+    }
+
+    // self.webView.evaluateJavaScript("window.open('\(self.targetURL)')", completionHandler: nil)からCallされている
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+
+        // 新しいViewを作成する
+        let myURL = URL(string: targetURL)
+        let myRequest = URLRequest(url: myURL!)
+        let tabView = WKWebView(frame: view.frame, configuration: configuration)
+        tabView.load(myRequest)
+        self.view.addSubview(tabView)
+        self.view.bringSubview(toFront: tabView)    // わかりやすく最前面にもってくる（確認用）
+
+        return tabView
+        // これで元のViewの上に新たなViewが出来上がる（あとは新規Tabとして表示させる方法を考える）
     }
 }
 
